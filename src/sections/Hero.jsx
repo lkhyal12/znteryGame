@@ -1,15 +1,17 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap/all";
 import React, { useEffect, useRef, useState } from "react";
-
+import Button from "../components/Button";
+import { Send } from "lucide-react";
+import { ScrollTrigger } from "gsap/all";
+gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
-  const [isClicked, setIsClicked] = useState(false);
+  const [loadedVideos, setLoadedVideos] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const containerRef = useRef();
   const totalVideos = 4;
   const nextVideoIndex = (currentIndex % totalVideos) + 1;
-  console.log({ currentIndex });
 
   function handleClick() {
     setCurrentIndex(nextVideoIndex);
@@ -41,23 +43,45 @@ const Hero = () => {
     { scope: containerRef, dependencies: [currentIndex] }
   );
 
+  useGSAP(
+    () => {
+      gsap.to("#video-container", {
+        clipPath: "polygon(19% 0%, 100% 0%, 73% 100%, 0% 100%)",
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: "#video-container",
+          scrub: true,
+          start: "5% top",
+          end: "80% top",
+        },
+      });
+    },
+    { scope: containerRef }
+  );
   useEffect(() => {
-    setIsLoading(false);
-  }, [currentIndex]);
+    if (loadedVideos === totalVideos - 1) setIsLoading(false);
+  }, [loadedVideos]);
+
   return (
     <section ref={containerRef} className="relative w-screen h-dvh bg-blue-50">
-      <div id="video-container" className="relative w-full h-full ">
+      {isLoading && (
+        <div>
+          <h1>Loading...</h1>
+        </div>
+      )}
+      <div id="video-container" className="relative w-full h-full z-10">
         <div
           id="current-video"
-          className="absolute z-20 top-1/2 left-[50%] -translate-x-1/2  -translate-y-1/2 scale-50 size-60 opacity-0 transition-all duration-700 hover:opacity-100 hover:scale-100 cursor-pointer origin-center overflow-hidden"
+          className="absolute z-40 top-1/2 left-[50%] -translate-x-1/2  -translate-y-1/2 scale-50 size-60 opacity-0 transition-all duration-700 hover:opacity-100 hover:scale-100 cursor-pointer origin-center overflow-hidden rounded-lg"
         >
           <video
-            className=" size-full object-center object-cover rounded-lg scale-150 "
+            className=" size-full object-center object-cover scale-150 "
             src={`videos/hero-${nextVideoIndex}.mp4`}
             autoPlay
             loop
             muted
             onClick={handleClick}
+            onLoadedData={() => setLoadedVideos((p) => p + 1)}
           ></video>
         </div>
 
@@ -71,6 +95,7 @@ const Hero = () => {
             autoPlay
             loop
             muted
+            onLoadedData={() => setLoadedVideos((p) => p + 1)}
           ></video>
         </div>
 
@@ -80,8 +105,31 @@ const Hero = () => {
           autoPlay
           muted
           loop
+          onLoadedData={() => setLoadedVideos((p) => p + 1)}
         ></video>
+
+        <div className="relative z-30 py-30 px-10 ">
+          <h1 className="text-white  font-audiowide font-extrabold text-6xl md:text-8xl uppercase">
+            Redefine
+          </h1>
+
+          <p className="md:max-w-50 text-blue-50 my-5 gaming-retro">
+            Enter the metagame layer Unleash the play economy
+          </p>
+          <Button
+            title="Watch Trailer"
+            classes="text-black  text-sm bg-yellow-200 px-6 flex items-center"
+            icon={<Send size={12} color="black" />}
+          />
+        </div>
+
+        <h1 className="text-white  font-audiowide font-extrabold text-6xl md:text-8xl uppercase absolute bottom-[8%] right-[8%] z-50">
+          games
+        </h1>
       </div>
+      <h1 className="text-black  font-audiowide font-extrabold text-6xl md:text-8xl uppercase absolute bottom-[8%]  right-[8%]">
+        games
+      </h1>
     </section>
   );
 };

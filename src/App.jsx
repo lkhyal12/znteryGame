@@ -5,6 +5,8 @@ const App = () => {
   return (
     <div>
       <Hero />
+
+      <section className="bg-black h-dvh "></section>
     </div>
   );
 };
