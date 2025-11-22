@@ -1,12 +1,17 @@
 import React from "react";
 import Hero from "./sections/Hero";
+import Navbar from "./components/Navbar";
+import About from "./sections/About";
 
 const App = () => {
   return (
     <div>
+      <Navbar />
       <Hero />
 
-      <section className="bg-black h-dvh "></section>
+      <About />
+
+      <section className="h-dvh w-screen bg-amber-700"></section>
     </div>
   );
 };

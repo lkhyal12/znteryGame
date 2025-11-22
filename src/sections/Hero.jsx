@@ -63,7 +63,11 @@ const Hero = () => {
   }, [loadedVideos]);
 
   return (
-    <section ref={containerRef} className="relative w-screen h-dvh bg-blue-50">
+    <section
+      id="home"
+      ref={containerRef}
+      className="relative w-screen h-dvh bg-blue-50"
+    >
       {isLoading && (
         <div>
           <h1>Loading...</h1>
