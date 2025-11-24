@@ -97,3 +97,7 @@ html {
     transform: translateY(-0px);
   }
 }
+
+.rowSpan {
+  grid-row: span 2;
+}

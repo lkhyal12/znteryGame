@@ -1,0 +1,30 @@
+.container {
+  perspective: 500px;
+}
+.card {
+  height: 300px;
+  width: 300px;
+  transform-style: preserve-3d;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+.box {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  backface-visibility: hidden;
+}
+.box1 {
+  background-color: aqua;
+  transform: rotateY(-180deg);
+}
+.box2 {
+  background-color: red;
+  /* transform: translateX(-15px); */
+}
+.card:hover {
+  transform: rotateY(180deg);
+}

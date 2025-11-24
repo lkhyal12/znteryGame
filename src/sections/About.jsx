@@ -10,7 +10,7 @@ const About = () => {
     () => {
       gsap.fromTo(
         "#imgContainer",
-        { width: 300, height: 300 }, // initial size
+        { width: 400, height: 300 }, // initial size
         {
           width: "100vw",
           height: "100vh",
@@ -19,10 +19,11 @@ const About = () => {
             trigger: "#clip",
             scrub: 0.8, // smoother and slower
             start: "top top",
-            end: "+=1000 center", // long animation distance
+            end: "+=1200", // long animation distance
             pin: true,
             pinSpacer: true,
             pinSpacing: true,
+            anticipatePin: true,
             // pin wrapper only
           },
         }
@@ -31,7 +32,11 @@ const About = () => {
     { scope: aboutRef }
   );
   return (
-    <section ref={aboutRef} id="about" className="min-h-screen mb-40 relative">
+    <section
+      ref={aboutRef}
+      id="about"
+      className="min-h-dvh pb-[62vh] md:pb-[40vh]  relative"
+    >
       <div className="flex flex-col items-center gap-10 pb-10">
         <p className="text-sm gaming-retro mt-20">Welcome To Zentry</p>
 
