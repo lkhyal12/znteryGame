@@ -3,7 +3,7 @@ import gsap from "gsap/all";
 import React, { useRef } from "react";
 import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
-const AnimatedTitle = ({ title }) => {
+const AnimatedTitle = ({ title, classes = "" }) => {
   const textContainerRef = useRef();
   useGSAP(
     () => {
@@ -33,7 +33,7 @@ const AnimatedTitle = ({ title }) => {
           {line.split(" ").map((word, idx) => (
             <span
               key={idx}
-              className="animated-word text-4xl sm:text-5xl md:text-7xl uppercase gaming-retro font-bold"
+              className={`animated-word text-3xl sm:text-5xl md:text-7xl uppercase gaming-retro font-bold`}
             >
               {word}
             </span>

@@ -39,13 +39,12 @@ const Story = () => {
       <p className="gaming-retro text-[10px]  uppercase text-center mb-10">
         the multiversal ip world
       </p>
-      <div className="relative z-50 w-full md:w-226 mx-auto">
-        <AnimatedTitle title="The story of a hidden realm" />
+      <div className="relative z-50 w-2/3 md:w-1/2 mx-auto">
+        <AnimatedTitle title="The story of a hidden realm" classes="text-xl" />
       </div>
-
-      <div className="storyImgContainer relative h-[90vh] md:h-dvh w-full">
+      <div className="storyImgContainer mt-30 relative h-[90vh] md:h-dvh w-full">
         <div
-          className="absolute left-0 top-0 md:top-[-10%] md:left-[20%] size-full md:size-4/5 overflow-hidden "
+          className="absolute  left-0 top-[-30%] md:left-[20%] size-full md:size-4/5 overflow-hidden "
           style={{ clipPath: "polygon(4% 0, 83% 21%, 100% 73%, 0% 100%)" }}
         >
           <div className="story-img-content">
@@ -84,15 +83,17 @@ const Story = () => {
           </defs>
         </svg>
       </div>
-      <div className="w-full md:w-1/2 lg:w-1/3 ml-auto md:mr-15">
-        <p className="text-[16px] gaming-retro">
+      <div className="w-2/3 mx-auto px-4 md:px-0 md:w-1/2 lg:w-1/3 md:ml-auto md:mr-15">
+        <p className="text-sm text-center md:text-[16px] gaming-retro">
           When realms converge, lies Zentry and the boundless pillar. Discover
           its secrets and shape your fate amidst infinite opportunities.
         </p>
-        <Button
-          title="Discover Prologue"
-          classes="bg-white text-black text-sm mt-5 px-5 uppercase py-3"
-        />
+        <div className="w-full mx-auto">
+          <Button
+            title="Discover Prologue"
+            classes="bg-white text-black text-sm mt-5 px-5 uppercase py-3 block mx-auto"
+          />
+        </div>
       </div>
     </section>
   );
