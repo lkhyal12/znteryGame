@@ -34,15 +34,15 @@ const Story = () => {
   return (
     <section
       id="story"
-      className="min-h-dvh w-screen bg-black text-blue-50 py-20"
+      className="min-h-[60vh] md:min-h-dvh w-screen bg-black text-blue-50 py-20"
     >
       <p className="gaming-retro text-[10px]  uppercase text-center mb-10">
         the multiversal ip world
       </p>
-      <div className="relative z-50 w-2/3 md:w-1/2 mx-auto">
+      <div className="relative z-50 w-full md:w-1/2 md:mx-auto">
         <AnimatedTitle title="The story of a hidden realm" classes="text-xl" />
       </div>
-      <div className="storyImgContainer mt-30 relative h-[90vh] md:h-dvh w-full">
+      <div className="storyImgContainer mt-30 relative h-[40vh] md:h-dvh w-full">
         <div
           className="absolute  left-0 top-[-30%] md:left-[20%] size-full md:size-4/5 overflow-hidden "
           style={{ clipPath: "polygon(4% 0, 83% 21%, 100% 73%, 0% 100%)" }}

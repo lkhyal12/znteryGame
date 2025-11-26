@@ -7,6 +7,8 @@ const AnimatedTitle = ({ title, classes = "" }) => {
   const textContainerRef = useRef();
   useGSAP(
     () => {
+      const windowWidth = window.innerWidth;
+
       gsap.from(".animated-word", {
         stagger: 0.3,
         x: "100px",
@@ -14,26 +16,26 @@ const AnimatedTitle = ({ title, classes = "" }) => {
         ease: "power2.inOut",
         scrollTrigger: {
           trigger: textContainerRef.current,
-          start: "top 80%",
+          start: "top center",
           end: "end bottom",
           scrub: 1,
           toggleActions: "play none none reverse",
         }, // <-- THIS MAKES IT RE
       });
     },
-    { scope: textContainerRef.current }
+    { scope: textContainerRef }
   );
   return (
     <div ref={textContainerRef} className="text-center">
       {title.split("<br />").map((line, index) => (
         <div
           key={index}
-          className="flex items-center gap-3 text-center justify-center mb-5 flex-wrap"
+          className="flex max-sm:px-5 max-sm:w-full  items-center gap-3 text-center justify-center mb-5 flex-wrap"
         >
           {line.split(" ").map((word, idx) => (
             <span
               key={idx}
-              className={`animated-word text-3xl sm:text-5xl md:text-7xl uppercase gaming-retro font-bold`}
+              className={`animated-word text-2xl sm:text-4xl md:text-7xl uppercase gaming-retro font-bold`}
             >
               {word}
             </span>
