@@ -37,7 +37,9 @@ html {
 .fontAudioWide {
   font-family: "Audiowide", cursive;
 }
-
+body {
+  overflow-x: hidden;
+}
 @theme {
   --font-bebas: "Bebas Neue", sans-serif;
   --font-stack: "Stack Sans Notch", sans-serif;

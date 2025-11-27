@@ -21,7 +21,17 @@ const Navbar = () => {
   const audioRef = useRef();
   const navRef = useRef();
   const { y: currentScrollY } = useWindowScroll();
-
+  useGSAP(
+    () => {
+      gsap.from(".navLinks a", {
+        y: "100%",
+        opacity: 0,
+        stagger: 0.2,
+        ease: "elastic",
+      });
+    },
+    { scope: navRef }
+  );
   useEffect(() => {
     if (currentScrollY === 0) {
       navRef.current.classList.remove("floating-bar");
@@ -63,7 +73,7 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <a
                 key={link.name}
-                className="text-blue-50 relative text-sm cursor-pointer"
+                className="text-blue-100 relative text-sm cursor-pointer"
               >
                 {link.name}
               </a>
