@@ -46,7 +46,8 @@ html {
   --font-wetpaint: "Rubik Wet Paint", cursive;
 }
 #video-container {
-  clip-path: polygon(0 1%, 100% 0%, 100% 100%, 0% 100%);
+  /* clip-path: polygon(0 1%, 100% 0%, 100% 100%, 0% 100%); */
+  clip-path: polygon(0 0, 100% 0, 100% 76%, 100% 100%, 0 100%, 0 42%);
 }
 .floating-bar {
   transform: translateY(0);
@@ -108,4 +109,36 @@ html {
   @apply absolute w-full md:h-dvh h-[50dvh] opacity-100 left-10 top-16 md:left-0 md:top-10 lg:left-[-300px] lg:top-[-100px];
   transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0) scale(1);
   /* background-color: aqua; */
+}
+.loader {
+  transform: rotate(0);
+  animation: rotate 0.8s linear infinite;
+}
+.loader div {
+  transform: scale(1);
+  animation: pulse 0.6s ease-in-out infinite;
+}
+.loader div:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.loader div:nth-child(3) {
+  animation-delay: 0.2s;
+}
+@keyframes pulse {
+  0% {
+    width: 10px !important;
+    height: 10px !important;
+  }
+  100% {
+    width: 15px !important;
+    height: 15px !important;
+  }
+}
+@keyframes rotate {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
 }

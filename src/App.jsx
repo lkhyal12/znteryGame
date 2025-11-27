@@ -8,6 +8,7 @@ import Test from "./sections/Test";
 import Story from "./sections/Story";
 import Contact from "./sections/Contact";
 import Footer from "./components/Footer";
+import Loader from "./components/Loader";
 
 const App = () => {
   return (
@@ -20,8 +21,6 @@ const App = () => {
       <Story />
       <Contact />
       <Footer />
-      {/* <Test /> */}
-      {/* <section className="h-dvh w-screen bg-amber-700 mt-65 md:mt-75 pt-60"></section> */}
     </div>
   );
 };

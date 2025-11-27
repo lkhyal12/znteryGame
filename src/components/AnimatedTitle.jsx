@@ -16,7 +16,7 @@ const AnimatedTitle = ({ title, classes = "" }) => {
         ease: "power2.inOut",
         scrollTrigger: {
           trigger: textContainerRef.current,
-          start: "top center",
+          start: "top 80%",
           end: "end bottom",
           scrub: 1,
           toggleActions: "play none none reverse",

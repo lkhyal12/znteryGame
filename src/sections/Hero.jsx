@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Button from "../components/Button";
 import { Send } from "lucide-react";
 import { ScrollTrigger } from "gsap/all";
+import Loader from "../components/Loader";
 gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
   const [loadedVideos, setLoadedVideos] = useState(0);
@@ -45,14 +46,18 @@ const Hero = () => {
 
   useGSAP(
     () => {
+      // if (isLoading) return;
+
+      // ScrollTrigger.refresh();
       gsap.to("#video-container", {
-        clipPath: "polygon(19% 0%, 100% 0%, 73% 100%, 0% 100%)",
+        // clipPath: "polygon(19% 0%, 100% 0%, 73% 100%, 0% 100%)",
+        clipPath: "polygon(16% 0, 90% 0, 96% 76%, 77% 94%, 18% 89%, 3% 50%)",
         ease: "power1.inOut",
         scrollTrigger: {
           trigger: "#video-container",
           scrub: true,
-          start: "5% top",
-          end: "80% top",
+          start: "2% top",
+          end: "80% 20%",
         },
       });
     },
@@ -69,8 +74,8 @@ const Hero = () => {
       className="relative w-screen h-dvh bg-blue-50"
     >
       {isLoading && (
-        <div>
-          <h1>Loading...</h1>
+        <div className="absolute top-0 left-0 z-50 bg-white w-screen h-dvh">
+          <Loader />
         </div>
       )}
       <div id="video-container" className="relative w-full h-full z-10">
