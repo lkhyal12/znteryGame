@@ -21,7 +21,6 @@ const Navbar = () => {
   const audioRef = useRef();
   const navRef = useRef();
   const { y: currentScrollY } = useWindowScroll();
-  console.log({ currentScrollY });
 
   useEffect(() => {
     if (currentScrollY === 0) {
@@ -62,7 +61,10 @@ const Navbar = () => {
         <div className="flex items-center gap-5">
           <div className="navLinks hidden  md:flex flex-center gap-5 font-wetpaint text-sm mr-5">
             {navLinks.map((link) => (
-              <a className="text-blue-50 relative text-sm cursor-pointer">
+              <a
+                key={link.name}
+                className="text-blue-50 relative text-sm cursor-pointer"
+              >
                 {link.name}
               </a>
             ))}
