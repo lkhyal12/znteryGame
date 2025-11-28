@@ -78,7 +78,7 @@ const Hero = () => {
           <Loader />
         </div>
       )}
-      <div id="video-container" className="relative w-full h-full z-10">
+      <div id="home" className="relative w-full h-full z-10">
         <div
           id="current-video"
           className="absolute z-40 top-1/2 left-[50%] -translate-x-1/2  -translate-y-1/2 scale-50 size-60 opacity-0 transition-all duration-700 hover:opacity-100 hover:scale-100 cursor-pointer origin-center overflow-hidden rounded-lg"

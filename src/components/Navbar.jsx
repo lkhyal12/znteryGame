@@ -11,7 +11,7 @@ const navLinks = [
   { href: "#about", name: "About", id: 1 },
   { href: "#features", name: "Features", id: 2 },
   { href: "#story", name: "Story", id: 3 },
-  { href: "#layer", name: "Layer", id: 4 },
+  { href: "#contact", name: "Contact", id: 4 },
 ];
 
 const Navbar = () => {
@@ -72,6 +72,7 @@ const Navbar = () => {
           <div className="navLinks hidden  md:flex flex-center gap-5 font-wetpaint text-sm mr-5">
             {navLinks.map((link) => (
               <a
+                href={link.href}
                 key={link.name}
                 className="text-blue-100 relative text-sm cursor-pointer"
               >
